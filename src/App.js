@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
@@ -15,15 +15,25 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
+  const [display, setDisplay] = useState(0);
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
+      <div className = "screen">
+        <div className="display">{display}</div>
+      </div>
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Numbers />
-        <Operators />
-        <Specials />
+        <div className = "buttonBox">
+          <div className ="boringButtons">
+            <Specials />
+            <Numbers />
+          </div>
+          <div className = "operatingButton">
+            <Operators />
+          </div>
+        </div>
       </div>
     </div>
   );
